@@ -2,7 +2,7 @@
 **Start:** February 13, 2021, at 09:00am   
 **Due:** March 7, 2021, at 09:00pm
 
-This project involves implementing several different process scheduling algorithms. 
+This project involves implementing (i.e., simulating) several different process scheduling algorithms. 
 The scheduler will be assigned a predefined set of tasks and will schedule the tasks based on the selected scheduling 
 algorithm. Each task is assigned a priority and CPU burst. The following scheduling algorithms will be implemented:
 
