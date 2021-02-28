@@ -123,7 +123,10 @@ Output of the priority scheduling algorithm is given below.
     Average turnaround time = 333.20
     Average response time = 306.40
 
-**Note:** For each algorithm, the format of the output should be exactly as above.
+
+**Note 1:** For each algorithm, the format of the output should be exactly as above.
+
+**Note 2:** Here we don't provide the correct outputs for other algorithms which is intentional as it will deepen your understaning of the way these algorithm work. 
 
 
 ## Deliverables
