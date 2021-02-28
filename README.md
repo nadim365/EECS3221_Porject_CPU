@@ -150,3 +150,14 @@ schedule_priority_rr.c
 
 3. You need to submit one zip file, `project2.zip` that includes the starter code (even if it was not modified), 
 Makefile and any source files that were added. Do not submit object (*.o) files or compiled executables.
+
+## Evaluation
+Correct implementation of each algorithm will get 4 marks which make a total of 20 marks for project 2. The 4 markss for each algorithm is broken down as follow:
+1. Correct output (the order and values): 2.5 points
+   1. One incorrect line: -0.5 point
+   2. Two incorrect lines: -1   point
+   3. Duplicate lines: -0.5 point
+   4. Three or more lines of mistakes: -2.5
+2. Correct Average waiting time: 0.5 point
+3. Correct Average turnaround time: 0.5 point
+4. Correct Average response time: 0.5 point
