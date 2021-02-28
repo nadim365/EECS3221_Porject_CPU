@@ -9,11 +9,11 @@ algorithm. Each task is assigned a priority and CPU burst. The following schedul
 * First-come, first-served (FCFS), which schedules tasks in the order in which they request the CPU.
 * Shortest-job-first (SJF), which schedules tasks in order of the length of the tasks’ next CPU burst.
 * Priority scheduling, which schedules tasks based on priority. 
-* Round-robin (RR) scheduling, where each task is run for a time quantum (or for the remainder of its CPU burst).
+* Round-robin (rr) scheduling, where each task is run for a time quantum (or for the remainder of its CPU burst).
 * Priority with round-robin, which schedules tasks in order of priority and uses round-robin scheduling for tasks with equal priority.
 
 Priorities range from 1 to 10, where a higher numeric value indicates a higher relative priority. 
-For round-robin scheduling, the length of a time `quantum` is `10` milliseconds.
+For rr scheduling, the length of a time `quantum` is `10` milliseconds.
 
 ## Implementation
 The implementation of this project may be completed in C and program files supporting the project are 
@@ -124,8 +124,9 @@ Output of the priority scheduling algorithm is given below.
     Average response time = 306.40
 
 
-**Note 1:** For Round-robin algorithm, the burst time should be the remaing burst time each time you produce the output. For example, consider the following output for P0 under Round-robin:
+**Note 1:** For round-robin or priority with round-robin algorithms, the burst time should be the remaining burst time each run of the process. For example, consider the following output for P0 under round-robin:
 
+    Running task = [P0] [9] [35] for 10 units
     Running task = [P0] [9] [25] for 10 units
     Running task = [P0] [9] [15] for 10 units
     Running task = [P0] [9] [5]  for 5 units
