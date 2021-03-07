@@ -153,7 +153,8 @@ schedule_priority_rr.c
 Makefile and any source files that were added. Do not submit object (*.o) files or compiled executables.
 
 ## Evaluation
-Correct implementation of each algorithm will get 4 marks which make a total of 20 marks for project 2. The 4 markss for each algorithm is broken down as follow:
+Correct implementation of each algorithm will get 4 marks which make a total of 20 points for project 2. 
+The 4 marks for each algorithm is broken down as follow:
 1. Correct output (the order and values): 2.5 points
    1. One incorrect line: -0.5 point
    2. Two incorrect lines: -1   point
