@@ -124,16 +124,7 @@ Output of the priority scheduling algorithm is given below.
     Average response time = 306.40
 
 
-**Note 1:** For round-robin or priority with round-robin algorithms, the burst time should be the remaining burst time each run of the process. For example, consider the following output for P0 under round-robin:
-
-    Running task = [P0] [9] [35] for 10 units
-    Running task = [P0] [9] [25] for 10 units
-    Running task = [P0] [9] [15] for 10 units
-    Running task = [P0] [9] [5]  for 5 units
-
-**Note 2:** Here we don't provide the correct outputs for other algorithms which is intentional as it will deepen your understaning of the way these algorithm work. 
-
-
+**Note:** The correct outputs of a sample input for all algorithms can be seen [here](CorrectOutput.md).
 
 
 ## Deliverables
