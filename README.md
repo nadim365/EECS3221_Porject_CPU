@@ -75,12 +75,13 @@ schedule_priority_rr.c
 ``` 
 2. And calculating the *average* **turnaround time**, **waiting time**, and **response time** for each of the above scheduling algorithms.
 
-3. You need to submit one zip file, `project2.zip` that includes the starter code (even if it was not modified), 
-Makefile and any source files that were added. Do not submit object (*.o) files or compiled executables.
+3. You need to submit one zip file, `project2.zip` that includes the starter code (even if it was not modified), Makefile and any source files that were added. Do not submit object (*.o) files or compiled executables.
 
-**Note:** [Here is a quick tutorial on makefile](http://www.cs.colby.edu/maxwell/courses/tutorials/maketutor/), in case you are not familiar.
+**Note:** [here is a quick tutorial on makefile](http://www.cs.colby.edu/maxwell/courses/tutorials/maketutor/), in case you are not familiar.
 
 ## Evaluation
+TAs will evaluate your projects on Department's servers. However, you need to modify the server that you plan to implement/test your project. The how-to tutorial for this purpose is available in the course's eClass. 
+
 Correct implementation of each algorithm will get 4 marks which make a total of 20 points for project 2. 
 The 4 marks for each algorithm is broken down as follow:
 1. Correct output (the order and values): 2.5 points
