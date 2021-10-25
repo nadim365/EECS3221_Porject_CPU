@@ -1,6 +1,6 @@
 ## Scheduling Algorithms
-**Start:** February 13, 2021, at 09:00am   
-**Due:** March 7, 2021, at 09:00pm
+**Start:** October 25, 2021, at 09:00am   
+**Due:** November 15, 2021, at 09:00pm
 
 This project involves implementing (i.e., simulating) several different process scheduling algorithms. 
 The scheduler will be assigned a predefined set of tasks and will schedule the tasks based on the selected scheduling 
@@ -77,6 +77,8 @@ schedule_priority_rr.c
 
 3. You need to submit one zip file, `project2.zip` that includes the starter code (even if it was not modified), 
 Makefile and any source files that were added. Do not submit object (*.o) files or compiled executables.
+
+**Note:** [Here is a quick tutorial on makefile](http://www.cs.colby.edu/maxwell/courses/tutorials/maketutor/), in case you are not familiar.
 
 ## Evaluation
 Correct implementation of each algorithm will get 4 marks which make a total of 20 points for project 2. 
