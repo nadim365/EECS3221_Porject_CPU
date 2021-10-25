@@ -79,7 +79,7 @@ schedule_priority_rr.c
 
 **Note 1:** [here is a quick tutorial on makefile](http://www.cs.colby.edu/maxwell/courses/tutorials/maketutor/), in case you are not familiar.
 
-**Note 2**: TAs will evaluate your projects on Department's servers. However, you need to modify the server that you plan to implement/test your project. The how-to tutorial for this purpose is available in the course's eClass. 
+**Note 2**: TAs will evaluate your projects on one of the Department's servers with specific configuration. You need to configure your account on one of the department servers according to this specific configuration. To do so, you may take a look at a how-to tutorial that is available in the course's eClass under the Project section.  
 
 ## Evaluation
 Correct implementation of each algorithm will get 4 marks which make a total of 20 points for project 2. 
