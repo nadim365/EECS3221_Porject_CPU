@@ -23,20 +23,23 @@ void insert(struct node **head, Task *newTask) {
 //adding a node at the end of the list
 void insert_last(struct node **head, Task *newTask){
     struct node *newNode = malloc(sizeof(struct node));
+    struct node *last = *head;
 
     newNode->task = newTask;
     newNode->next = NULL;
 
-    if(*head == NULL) {
+    //if list is empty
+    if(*head == NULL)  {
         *head = newNode;
         return;
-    }
-    struct node *last = *head; 
+    } 
 
+    // if list is not empty then goto last node at end of list
     while(last->next != NULL){
         last = last->next;
     }
-
+    
+    //make the previous last node point to new last node
     last->next = newNode;
 
 }
