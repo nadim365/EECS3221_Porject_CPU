@@ -20,6 +20,27 @@ void insert(struct node **head, Task *newTask) {
     *head = newNode;
 }
 
+//adding a node at the end of the list
+void insert_last(struct node **head, Task *newTask){
+    struct node *newNode = malloc(sizeof(struct node));
+
+    newNode->task = newTask;
+    newNode->next = NULL;
+
+    if(*head == NULL) {
+        *head = newNode;
+        return;
+    }
+    struct node *last = *head; 
+
+    while(last->next != NULL){
+        last = last->next;
+    }
+
+    last->next = newNode;
+
+}
+
 // delete the selected task from the list
 void delete(struct node **head, Task *task) {
     struct node *temp;
