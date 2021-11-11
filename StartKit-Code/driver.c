@@ -40,7 +40,6 @@ int main(int argc, char *argv[])
 
         free(temp);
     }
-
     fclose(in);
 
     // invoke the scheduler

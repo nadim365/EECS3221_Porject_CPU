@@ -9,36 +9,34 @@ struct node *head = NULL;
 int id = 0;
 //adds tasks into linked list
 void add(char *name, int priority, int burst) {
-Task *t = NULL;
+Task *t = malloc(sizeof(struct task)) ;
 t->name = name;
 t->tid = id;
 t->priority = priority;
 t->burst = burst;
-insert_last(&head,t); 
+insert_last(&head,t);
 id = id + 1;
-
 }
 
 void schedule() {
-    float avg_turn;
+    float avg_turn = 0;
     float avg_wait = 0;
-    float avg_res;
+    float avg_res = 0;
     struct node *temp;
-    int len = list_len(&head);
+    int len = list_len(head);
     temp = head;
-
-    while(temp->next != NULL){
+    while(temp != NULL){
         run(temp->task, temp->task->burst);
         avg_turn = avg_turn + avg_wait + temp->task->burst;
         avg_wait = avg_wait + temp->task->burst;
         avg_res = avg_wait;
         temp = temp->next;
     }
-     avg_turn = avg_turn / ((float) len) ;
-     avg_wait = avg_wait / ((float) len) ;
-     avg_res = avg_res / ((float) len) ;
-     printf("Average waiting time = %f", avg_wait);
-     printf("Average turnaround time = %f", avg_turn);
-     printf("Average response time = %f", avg_res);
+       avg_turn = avg_turn / ((float) len) ;
+       avg_wait = avg_wait / ((float) len) ;
+       avg_res = avg_res / ((float) len) ;
+     printf("Average waiting time = %f \n", avg_wait);
+     printf("Average turnaround time = %f \n", avg_turn);
+     printf("Average response time = %f \n", avg_res);
      
 }

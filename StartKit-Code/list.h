@@ -12,6 +12,6 @@ struct node {
 // insert and delete operations.
 void insert(struct node **head, Task *task);
 void insert_last(struct node **head, Task *task);
-int list_len(struct node **head);
+int list_len(struct node *head);
 void delete(struct node **head, Task *task);
 void traverse(struct node *head);

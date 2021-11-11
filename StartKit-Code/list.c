@@ -79,13 +79,16 @@ void traverse(struct node *head) {
 }
 
 
-int list_len(struct node **head){
+int list_len(struct node *head){
+    
+    struct node *temp;
 
-    if(head == NULL){
+    temp = head;
+    if(temp == NULL){
         return 0;
     }
-
     else{
-        return 1 + list_len((*head)->next);
+        temp = temp->next;
+        return 1 + list_len(temp);
     }
 }
