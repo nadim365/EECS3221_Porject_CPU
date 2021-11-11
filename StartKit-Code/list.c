@@ -22,9 +22,12 @@ void insert(struct node **head, Task *newTask) {
 
 //adding a node at the end of the list
 void insert_last(struct node **head, Task *newTask){
+
+    //allocate memory to store the task
     struct node *newNode = malloc(sizeof(struct node));
     struct node *last = *head;
-
+    
+    //initialize task to be added
     newNode->task = newTask;
     newNode->next = NULL;
 
@@ -78,17 +81,61 @@ void traverse(struct node *head) {
     }
 }
 
-
+//function to return the length of the linked list
 int list_len(struct node *head){
     
+    //initialize temporary variable
     struct node *temp;
 
     temp = head;
+
+    //base case : when we reach last node
     if(temp == NULL){
         return 0;
     }
     else{
         temp = temp->next;
+        //recursively call the function till we reach the last node
         return 1 + list_len(temp);
     }
+}
+
+
+void sort_list(struct node *head)
+{
+    struct node *curr = NULL;
+    struct node *temp = NULL;
+    
+    Task *t = malloc(sizeof(struct task));
+
+    curr = head;
+
+    while(curr != NULL)
+    {
+        
+        temp = curr;
+
+        while(temp->next != NULL)
+        {
+
+            if(temp->task->burst > temp->next->task->burst)
+            {
+                t = temp->task;
+                temp->task = temp->next->task;
+                temp->next->task = t;
+            }
+            else if (temp->task->burst == temp->next->task->burst)
+            {
+                if(temp->task->tid > temp->next->task->tid)
+                {
+                    t = temp->task;
+                    temp->task = temp->next->task;
+                    temp->next->task = t;
+                }
+            }
+            temp = temp->next;
+        }
+        curr = curr->next;
+    }
+
 }

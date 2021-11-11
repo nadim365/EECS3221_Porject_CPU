@@ -15,3 +15,4 @@ void insert_last(struct node **head, Task *task);
 int list_len(struct node *head);
 void delete(struct node **head, Task *task);
 void traverse(struct node *head);
+void sort_list(struct node *head);
