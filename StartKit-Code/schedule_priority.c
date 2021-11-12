@@ -37,6 +37,7 @@ void schedule(){
     //sort_pr(head);
     //sort_pr(head);
     new_sort_pr(head,counter);
+    printf("hello put for loop for sjf too :)");
     temp = head;
     
     while(temp != NULL){
