@@ -131,3 +131,88 @@ void sort_list(struct node *head)
     }
 
 }
+
+void sort_pr(struct node *head){
+
+    struct node *curr = NULL;
+    struct node *temp = NULL;
+    
+    Task *t = malloc(sizeof(struct task));
+
+    curr = head;
+    
+    while(curr != NULL)
+    {
+        
+        temp = curr;
+
+        while(temp->next != NULL)
+        {
+
+            if(temp->task->priority < temp->next->task->priority)
+            {
+                t = temp->task;
+                temp->task = temp->next->task;
+                temp->next->task = t;
+            }
+            else if (temp->task->priority == temp->next->task->priority)
+            {
+                if(temp->task->tid > temp->next->task->tid)
+                {
+                    t = temp->task;
+                    temp->task = temp->next->task;
+                    temp->next->task = t;
+                }
+            }
+            
+            temp = temp->next;
+        }
+        curr = curr->next;
+    }
+
+}
+
+void new_sort_pr(struct node *head, int c){
+
+    struct node *curr = NULL;
+    struct node *temp = NULL;
+    int i = 0;
+    
+    Task *t = malloc(sizeof(struct task));
+
+    //curr = head;
+
+    for (i = 0; i < c; i++)
+    {    
+        curr = head;
+           while(curr != NULL)
+          {
+        
+            temp = curr;
+
+            while(temp->next != NULL)
+            {
+
+               if(temp->task->priority < temp->next->task->priority)
+               {
+                  t = temp->task;
+                  temp->task = temp->next->task;
+                  temp->next->task = t;
+               }
+               else if (temp->task->priority == temp->next->task->priority)
+               {
+                  if(temp->task->tid > temp->next->task->tid)
+                  {
+                      t = temp->task;
+                      temp->task = temp->next->task;
+                      temp->next->task = t;
+                   }
+                }
+            
+               temp = temp->next;
+            }
+          curr = curr->next;
+        }     
+    }
+
+}

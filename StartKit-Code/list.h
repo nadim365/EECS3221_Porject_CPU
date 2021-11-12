@@ -16,3 +16,5 @@ int list_len(struct node *head);
 void delete(struct node **head, Task *task);
 void traverse(struct node *head);
 void sort_list(struct node *head);
+void sort_pr(struct node *head);
+void new_sort_pr(struct node *head, int count);
