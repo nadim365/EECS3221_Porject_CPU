@@ -76,7 +76,7 @@ void traverse(struct node *head) {
     temp = head;
 
     while (temp != NULL) {
-        printf("[%s] [%d] [%d]\n",temp->task->name, temp->task->priority, temp->task->burst);
+        printf("[%s] [%d] [%d] [%d]\n",temp->task->name, temp->task->priority, temp->task->burst, temp->task->tid);
         temp = temp->next;
     }
 }
@@ -109,7 +109,7 @@ void sort_list(struct node *head)
     Task *t = malloc(sizeof(struct task));
 
     curr = head;
-
+    
     while(curr != NULL)
     {
         
@@ -118,21 +118,13 @@ void sort_list(struct node *head)
         while(temp->next != NULL)
         {
 
-            if(temp->task->burst > temp->next->task->burst)
+            if(temp->task->burst >= temp->next->task->burst)
             {
                 t = temp->task;
                 temp->task = temp->next->task;
                 temp->next->task = t;
             }
-            else if (temp->task->burst == temp->next->task->burst)
-            {
-                if(temp->task->tid > temp->next->task->tid)
-                {
-                    t = temp->task;
-                    temp->task = temp->next->task;
-                    temp->next->task = t;
-                }
-            }
+            
             temp = temp->next;
         }
         curr = curr->next;
