@@ -8,6 +8,7 @@
 //code to run shortest job first scheduling algorithm
 struct node *head = NULL;
 int id = 0;
+int counter = 0;
 
 //adds tasks into linked list
 void add(char *name, int priority, int burst) {
@@ -16,8 +17,9 @@ t->name = name;
 t->tid = id;
 t->priority = priority;
 t->burst = burst;
-insert(&head,t);
+insert_last(&head,t);
 id = id + 1;
+counter = counter + 1;
 }
 
 void schedule(){
@@ -29,8 +31,9 @@ void schedule(){
     int len = list_len(head);
     //traverse(head);
     //sort_list(head);
-    sort_list(head);
-    sort_list(head);
+    //sort_list(head);
+    //sort_list(head);
+    new_sort_list(head, counter);
     temp = head;
     
     while(temp != NULL){
