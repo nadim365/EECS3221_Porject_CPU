@@ -8,6 +8,7 @@
 
 #include "list.h"
 #include "task.h"
+#include "pArr.h"
 
 
 // add a new task to the list of tasks
@@ -37,13 +38,33 @@ void insert_last(struct node **head, Task *newTask){
         return;
     } 
 
-    // if list is not empty then goto last node at end of list
+    // if list is not empty then goto second slast node at end of list
     while(last->next != NULL){
         last = last->next;
     }
     
     //make the previous last node point to new last node
     last->next = newNode;
+
+}
+
+void insert_arr(struct arr **head, struct arr *var){
+    //struct arr *new_data = malloc(sizeof(struct arr));
+    struct arr *last = *head;
+
+   // new_data->rem_burst = var;
+    var->next = NULL;
+
+    if(*head == NULL){
+        *head = var;
+        return;
+    }
+
+    while(last->next != NULL){
+        last = last->next;
+    }
+
+    last->next = var;
 
 }
 
@@ -130,6 +151,41 @@ void sort_list(struct node *head)
         curr = curr->next;
     }
 
+}
+
+void new_sort_list(struct node *head, int c){
+    
+    struct node *curr = NULL;
+    struct node *temp = NULL;
+    int i;
+
+    Task *t = malloc(sizeof(struct task));
+
+    for(i = 0; i < c; i++){
+        
+        curr = head;
+
+        while(curr != NULL)
+          {
+        
+            temp = curr;
+
+            while(temp->next != NULL)
+            {
+
+               if(temp->task->burst > temp->next->task->burst)
+               {
+                  t = temp->task;
+                  temp->task = temp->next->task;
+                  temp->next->task = t;
+               }
+               
+            
+               temp = temp->next;
+            }
+          curr = curr->next;
+        }     
+    }
 }
 
 void sort_pr(struct node *head){
