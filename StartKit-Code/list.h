@@ -3,7 +3,6 @@
  */
 
 #include "task.h"
-#include "pArr.h"
 
 struct node {
     Task *task;
@@ -13,7 +12,6 @@ struct node {
 // insert and delete operations.
 void insert(struct node **head, Task *task);
 void insert_last(struct node **head, Task *task);
-void insert_arr(struct arr **head, struct arr *var);
 int list_len(struct node *head);
 void delete(struct node **head, Task *task);
 void traverse(struct node *head);

@@ -8,7 +8,6 @@
 
 #include "list.h"
 #include "task.h"
-#include "pArr.h"
 
 
 // add a new task to the list of tasks
@@ -45,26 +44,6 @@ void insert_last(struct node **head, Task *newTask){
     
     //make the previous last node point to new last node
     last->next = newNode;
-
-}
-
-void insert_arr(struct arr **head, struct arr *var){
-    //struct arr *new_data = malloc(sizeof(struct arr));
-    struct arr *last = *head;
-
-   // new_data->rem_burst = var;
-    var->next = NULL;
-
-    if(*head == NULL){
-        *head = var;
-        return;
-    }
-
-    while(last->next != NULL){
-        last = last->next;
-    }
-
-    last->next = var;
 
 }
 
