@@ -74,7 +74,7 @@ void schedule(){
                temp->task->burst = temp->task->burst - QUANTUM;
                if (res[temp->task->tid] == false)
                {
-                   avg_res = avg_res + t;
+                   avg_res = avg_res + t - QUANTUM;
                    res[temp->task->tid] = true;
                }
            }
@@ -85,6 +85,11 @@ void schedule(){
                    if (temp->task->burst != 0)
                    {
                        run(temp->task, temp->task->burst);
+                       if (res[temp->task->tid] == false)
+                      {
+                           avg_res = avg_res + t ;
+                           res[temp->task->tid] = true;
+                      }
                        t = t + temp->task->burst;
                        wt[temp->task->tid] = t - burst[temp->task->tid];
                        temp->task->burst = 0;
