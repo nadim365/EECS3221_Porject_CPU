@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include "schedulers.h"
 #include "list.h"
 #include "task.h"
@@ -42,6 +43,7 @@ void schedule(){
     struct node *temp;
     int looper = max_burst/QUANTUM;
     int len = list_len(head);
+    bool res[len];
     int burst[len];
     int wt[len];
     int i,j;
@@ -53,6 +55,7 @@ void schedule(){
     {
         burst[j] = temp->task->burst;
         wt[j] = 0;
+        res[j] = false;
         temp = temp->next; 
     }
     
@@ -64,46 +67,47 @@ void schedule(){
         while(temp != NULL)
         {
             //process starts execution
-           if(temp->task->burst >= QUANTUM){
+           if (temp->task->burst > QUANTUM)
+           {
                run(temp->task, QUANTUM);
-               avg_turn = avg_turn + temp->task->burst;
-               temp->task->burst = temp->task->burst - QUANTUM;
                t = t + QUANTUM;
-           }
-           //last stage of execution
-           else if (temp->task->burst < QUANTUM && temp->task->burst > 0)
-           {
-               run(temp->task, temp->task->burst);
-               t = t + temp->task->burst;
-               wt[temp->task->tid] = t ;
-               printf("first wait : %d \n", wt[temp->task->tid]);
-               temp->task->burst = 0; 
-               temp = temp->next;
-               continue;
-           }
-           //process finished executing
-           else
-           {
-               if(temp->task->burst == 0 )
+               temp->task->burst = temp->task->burst - QUANTUM;
+               if (res[temp->task->tid] == false)
                {
-                        wt[temp->task->tid] = t - temp->task->burst;
-                        printf("second wait : %d \n", t - temp->task->burst);
-                  
+                   avg_res = avg_res + t;
+                   res[temp->task->tid] = true;
                }
            }
-         avg_res = avg_wait;
+           else
+           {
+               if(temp->task->burst <= QUANTUM)
+               {
+                   if (temp->task->burst != 0)
+                   {
+                       run(temp->task, temp->task->burst);
+                       t = t + temp->task->burst;
+                       wt[temp->task->tid] = t - burst[temp->task->tid];
+                       temp->task->burst = 0;
+                       
+                   }
+               }
+           }
+           
+         //avg_res = avg_wait;
          temp = temp->next;
       }
     }
-    //summing up the wait times 
+    //summing up the wait times and adding burst times to avg_turn 
     for (i = 0; i < len; i++)
     {
-        avg_wait = avg_wait + wt[i];  
+        avg_wait = avg_wait + wt[i];
+        avg_turn = avg_turn + burst[i];
     }
-    avg_turn = avg_turn + avg_wait;      
+    avg_turn = avg_turn + avg_wait; //adding wait time to turnaround time
+
     avg_turn = avg_turn / ((float) len) ;
     avg_wait = avg_wait / ((float) len) ;
-    avg_res = avg_wait / ((float) len) ;
+    avg_res = avg_res / ((float) len) ;
     printf("time = %d \n", t);
     printf("Average waiting time = %f \n", avg_wait);
     printf("Average turnaround time = %f \n", avg_turn);
