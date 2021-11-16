@@ -29,20 +29,14 @@ void schedule(){
     float wait = 0.0;
     struct node *temp;
     int len = list_len(head);
-    //traverse(head);
-    //sort_list(head);
-    //sort_pr(head);
-    //sort_pr(head);
-    //sort_pr(head);
-    //sort_pr(head);
-    //sort_pr(head);
+    
     new_sort_pr(head,counter);
     printf("hello put for loop for sjf too :)");
     temp = head;
     
     while(temp != NULL){
         run(temp->task, temp->task->burst);
-        //avg_wait = avg_wait + (avg_turn + temp->task->burst) ;
+        
         avg_turn = avg_turn + avg_wait + temp->task->burst;
         wait = wait + avg_wait;
         avg_wait = avg_wait + temp->task->burst;
@@ -57,5 +51,4 @@ void schedule(){
     printf("Average waiting time = %f \n", avg_wait);
     printf("Average turnaround time = %f \n", avg_turn);
     printf("Average response time = %f \n", avg_res);
-    //traverse(head);
 }
