@@ -50,8 +50,8 @@ void schedule(){
     avg_wait = wait / ((float) len) ;
     avg_res = wait / ((float) len) ;
     
-    printf("Average waiting time = %f \n", avg_wait);
-    printf("Average turnaround time = %f \n", avg_turn);
-    printf("Average response time = %f \n", avg_res);
+    printf("Average waiting time = %.2f \n", avg_wait);
+    printf("Average turnaround time = %.2f \n", avg_turn);
+    printf("Average response time = %.2f \n", avg_res);
     //traverse(head);
 }

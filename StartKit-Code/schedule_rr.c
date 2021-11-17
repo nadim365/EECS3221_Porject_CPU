@@ -79,7 +79,7 @@ void schedule(){
                }
            }
            else
-           {
+           { //process is at last stage of execution
                if(temp->task->burst <= QUANTUM)
                {
                    if (temp->task->burst != 0)
@@ -92,16 +92,15 @@ void schedule(){
                       }
                        t = t + temp->task->burst;
                        wt[temp->task->tid] = t - burst[temp->task->tid];
-                       temp->task->burst = 0;
+                       temp->task->burst = 0; //process finished, set burst to 0 as a result
                        
                    }
                }
            }
-           
-         //avg_res = avg_wait;
          temp = temp->next;
       }
     }
+
     //summing up the wait times and adding burst times to avg_turn 
     for (i = 0; i < len; i++)
     {
@@ -114,9 +113,9 @@ void schedule(){
     avg_wait = avg_wait / ((float) len) ;
     avg_res = avg_res / ((float) len) ;
     printf("time = %d \n", t);
-    printf("Average waiting time = %f \n", avg_wait);
-    printf("Average turnaround time = %f \n", avg_turn);
-    printf("Average response time = %f \n", avg_res);
+    printf("Average waiting time = %.2f \n", avg_wait);
+    printf("Average turnaround time = %.2f \n", avg_turn);
+    printf("Average response time = %.2f \n", avg_res);
      
 }
 
