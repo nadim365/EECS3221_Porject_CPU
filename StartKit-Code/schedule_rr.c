@@ -41,16 +41,18 @@ void schedule(){
     float avg_wait = 0.0;
     float avg_res = 0.0;
     struct node *temp;
-    int looper = max_burst/QUANTUM;
+    int looper = max_burst/QUANTUM; //determines how many times for loop should run
     int len = list_len(head);
-    bool res[len];
-    int burst[len];
-    int wt[len];
+    bool res[len]; //array to keep track if response time is calculated for that process
+    int burst[len]; //array containing original burt times of tasks
+    int wt[len]; //array to hold wait time of each process
     int i,j;
-    int t = 0; //time elapsed
+    int t = 0; //time elapsed, maintains CPU time
 
     temp = head;
     //initializing array with burst times of processes
+    //initializing array for wait time to 0
+    //initializing array for response time to false
     for(j= 0; j < len; j++)
     {
         burst[j] = temp->task->burst;

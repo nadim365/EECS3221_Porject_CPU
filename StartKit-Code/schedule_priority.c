@@ -30,8 +30,7 @@ void schedule(){
     struct node *temp;
     int len = list_len(head);
     
-    new_sort_pr(head,counter);
-    printf("hello put for loop for sjf too :)");
+    new_sort_pr(head,counter); //sort tasks by priority,  ascending
     temp = head;
     
     while(temp != NULL){

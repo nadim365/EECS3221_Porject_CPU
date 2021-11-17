@@ -141,7 +141,7 @@ void new_sort_list(struct node *head, int c){
     Task *t = malloc(sizeof(struct task));
 
     for(i = 0; i < c; i++){
-        
+        //uses counter to iterate until all elements are sorted
         curr = head;
 
         while(curr != NULL)
@@ -153,7 +153,7 @@ void new_sort_list(struct node *head, int c){
             {
 
                if(temp->task->burst > temp->next->task->burst)
-               {
+               { //swap the elements
                   t = temp->task;
                   temp->task = temp->next->task;
                   temp->next->task = t;
@@ -183,7 +183,7 @@ void sort_pr(struct node *head){
 
         while(temp->next != NULL)
         {
-
+            //compares priority with priority of next element
             if(temp->task->priority < temp->next->task->priority)
             {
                 t = temp->task;
@@ -191,7 +191,7 @@ void sort_pr(struct node *head){
                 temp->next->task = t;
             }
             else if (temp->task->priority == temp->next->task->priority)
-            {
+            {   //if tasks have same priority then order by their tid
                 if(temp->task->tid > temp->next->task->tid)
                 {
                     t = temp->task;
@@ -229,13 +229,13 @@ void new_sort_pr(struct node *head, int c){
             {
 
                if(temp->task->priority < temp->next->task->priority)
-               {
+               {  //compares priority with priority of next task
                   t = temp->task;
                   temp->task = temp->next->task;
                   temp->next->task = t;
                }
                else if (temp->task->priority == temp->next->task->priority)
-               {
+               {  //if priority is same, order by tid
                   if(temp->task->tid > temp->next->task->tid)
                   {
                       t = temp->task;

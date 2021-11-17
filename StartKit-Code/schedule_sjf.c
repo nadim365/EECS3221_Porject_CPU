@@ -33,7 +33,7 @@ void schedule(){
     //sort_list(head);
     //sort_list(head);
     //sort_list(head);
-    new_sort_list(head, counter);
+    new_sort_list(head, counter);//sorting list based on burst times
     temp = head;
     
     while(temp != NULL){

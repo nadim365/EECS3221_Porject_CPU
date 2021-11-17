@@ -27,7 +27,8 @@ void schedule() {
     int len = list_len(head);
     temp = head;
     //avg_wait = temp->task->burst;
-    while(temp != NULL){
+    //loop till last task
+    while(temp != NULL){ 
         run(temp->task, temp->task->burst);
         //avg_wait = avg_wait + (avg_turn + temp->task->burst) ;
         avg_turn = avg_turn + avg_wait + temp->task->burst;

@@ -45,12 +45,12 @@ void schedule(){
     struct node *temp;
     int looper = max_burst/QUANTUM;
     int len = list_len(head);
-    bool res[len];
-    int burst[len];
-    int wt[len];
+    bool res[len]; //array to keep track if response time has been calculated for that process
+    int burst[len]; //array to hold original burst times for each process
+    int wt[len]; //array to hold wait time of each process
     int wait = 0;
     int i,j;
-    int t = 0; //time elapsed
+    int t = 0; //time elapsed, maintains CPU time
     pr[0] = 0;
     new_sort_pr(head, counter);
    temp = head;
